@@ -12,14 +12,14 @@ end
 ```
 
 に従います。
-always_ff、always_comb内にも使用でき、一般的に型は**int**を用いて変数を宣言し、その変数はfor内に記述しているオブジェクトのポジション指定にも使用できます。
+always_ff、always_comb内にも使用でき、一般的に型は**int**型を用いて変数を宣言し、その変数はfor内に記述しているオブジェクトのポジション指定にも使用できます。
 また構造体のインデックスとして使用することもできます。
 例えばフラットに記述されたオブジェクト```logic_hohoho```について構造体に割り当てた上で使用したい場合は
 ```verilog
 always_comb begin
     for ( int index_a=0; index_a<WIDTH_A; index_a+=1 ) begin
         for ( int index_b=0; index_b<WIDTH; index_b+=1 ) begin
-        assign logic_hoge[index_a].logic_foo[index_b] = logic_hohoho[index_a*WIDTH_B + index_b] & Valid;
+            assign logic_hoge[index_a].logic_foo[index_b] = logic_hohoho[index_a*WIDTH_B + index_b] & Valid;
     end
 end
 ```
@@ -51,8 +51,7 @@ end
 
 のように記述します。
 条件式は論理演算を含む式をを記述できます。
-処理系によると思いますが、0以外の定数式は常に条件が成り立っている(真と呼びます)と暗黙に判断されます。
-オブジェクトの値が0以外の時に条件が真と判断されます。
+処理系によると思いますが、0以外の定数式は常に条件が成り立っている(真と呼びます)と暗黙に判断され、オブジェクトの値が0以外の時に条件が真と判断されます。
 条件式1から順に優先順位を持たせているので、条件式2が真であっても同時に条件式1が真であれば条件式1を処理します。
 また、条件式3が処理されるのは条件式1と2の条件が成立しない時、かつ条件式3が真の時です。
 
