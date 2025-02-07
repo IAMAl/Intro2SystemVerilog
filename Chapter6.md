@@ -1,4 +1,4 @@
-## Case文とEnum列挙
+## 6. Case文とEnum列挙
 
 ### Case文
 
